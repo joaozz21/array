@@ -28,14 +28,21 @@ fun main() {
                     println("$item removido com sucusso!")
                 } else if(item.isEmpty()){
                     println("nenhum item removido.")
-                }
-                else{
+                } else{
                     println("O item $item não existe no estoque!")
                 }
             }
             3 -> {
-                println("\nAtualize um item do estoque")
-
+                println("\nSelecione um item de 0 a ${itens.size -1}")
+                val pos = readLine()!!.toInt()
+               if(pos in 0..itens.size-1){
+                   print("\nAgora selecione o item a ser atualizado:")
+                   val item= readLine()!!
+                   itens[pos] = item
+                   println("Ítem atualizado com sucesso!")
+               }else{
+                   print("\nItem inválido")
+               }
             }
             4 -> {
                 println("\nMostrar todos os itens do estoque")
